@@ -56,29 +56,6 @@ func MakeRequest(ctx context.Context, req *http.Request, timeout ...time.Duratio
 
 }
 
-func GET(url string) (*http.Response, error) {
-	req, err := http.NewRequest(http.MethodGet, url, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return MakeRequest(context.Background(), req)
-}
-
-func POST(url string, body interface{}) (*http.Response, error) {
-	data, err := MarshallBody(body)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest(http.MethodPost, url, data)
-	if err != nil {
-		return nil, err
-	}
-
-	return MakeRequest(context.Background(), req, 5*time.Second)
-}
-
 func MarshallBody(body interface{}) (io.Reader, error) {
 	var (
 		data []byte
