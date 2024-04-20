@@ -1,3 +1,3 @@
-module github.com/gokhan-uysal/httpkit
+module github.com/code-brew-lab/httpkit
 
 go 1.22.2
